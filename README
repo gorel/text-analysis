@@ -1,0 +1,15 @@
+This is a program to analyze word, character, and symbol counts for a given file.  It is written in Ruby.
+
+The program first prompts the user to give the location of a file.  It will then attempt to load that file.
+
+If the file is loaded, the program will then split the string on all whitespace(space, tab, or newline), and delete any empty strings (which result from splitting over consecutive whitespace characters).
+
+It gets the 'sanitized word' (no symbols) by calling word.gsub(/[^0-9a-z]+/i, ''), which is a regular expression to replace anything that isn't alphanumeric with '' (an empty string).  This effectively removes all symbols.
+
+It gets the symbols in a similar way: by calling word.gsub(/[0-9a-z]+/i, ''), which is a regular expression to replace anything that IS alphanumeric with '' (an empty string).  This removes anything that isn't a symbol.
+
+The program has three hashes: a words hash, a characters hash, and a symbols hash.  Each is updated according to the sanitized word and symbols we have just retrieved from the current word.
+
+When the program is done parsing all words, it outputs the contents of the three hashes listed previously.
+
+It ends by displaying the total amount of time that elapsed to parse the given file.
